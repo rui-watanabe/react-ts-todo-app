@@ -1,10 +1,11 @@
 import React from 'react';
+import { AppContainer } from './styles';
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <AppContainer>
+      Column will go here
+    </AppContainer>
   );
 }
 
