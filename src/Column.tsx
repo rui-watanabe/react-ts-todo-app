@@ -1,11 +1,10 @@
 import React, { PropsWithChildren } from 'react';
 import { ColumnContainer, ColumnTitle } from './styles';
 
-interface ColumnProps
+interface ColumnProps 
 {
   text?: string;
-  // children?: React.ReactNode;
-}
+};
 
 export const Column = ({ text, children }: PropsWithChildren<ColumnProps> ) => 
 {
