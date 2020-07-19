@@ -1,7 +1,7 @@
-import React from 'react';
-import { Column } from './Column';
-import { Card } from './Card';
-import { AppContainer } from './styles';
+import React from "react"
+import { Column } from "./Column"
+import { Card } from "./Card"
+import { AppContainer } from "./styles"
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Card text="Begin to use static typing" />
       </Column>
     </AppContainer>
-  );
+  )
 }
 
-export default App;
+export default App

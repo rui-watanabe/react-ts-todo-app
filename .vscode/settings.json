@@ -1,0 +1,26 @@
+{
+  "files.insertFinalNewline": true,
+  "javascript.format.enable": false,
+  "prettier.tslintIntegration": true,
+  // for .ts
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  // for .tsx
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  // for .json with comment
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  }
+}
