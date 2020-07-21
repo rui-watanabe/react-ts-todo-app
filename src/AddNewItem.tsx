@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { AddItemButton } from "./styles"
+import { NewItemForm } from "./NewItemForm"
 
 interface AddNewItemProps {
   onAdd(text: string): void
@@ -12,11 +13,20 @@ export const AddNewItem = (props: AddNewItemProps) => {
   const { onAdd, toggleButtonText, dark } = props
 
   if (showHome) {
+    return (
+      <NewItemForm
+        onAdd={(text) => {
+          onAdd(text)
+          setShowHome(false)
+        }}
+      />
+    )
   }
 
   return (
-    <AddItemButton dark={dark} onClick={() => setShowHome(true)}>
-      {toggleButtonText}
-    </AddItemButton>
+    <button onClick={() => setShowHome(true)}>{toggleButtonText}</button>
+    // <AddItemButton dark={dark} onClick={() => setShowHome(true)}>
+    //   {toggleButtonText}
+    // </AddItemButton>
   )
 }
