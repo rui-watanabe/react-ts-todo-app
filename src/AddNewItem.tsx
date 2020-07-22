@@ -24,9 +24,8 @@ export const AddNewItem = (props: AddNewItemProps) => {
   }
 
   return (
-    <button onClick={() => setShowHome(true)}>{toggleButtonText}</button>
-    // <AddItemButton dark={dark} onClick={() => setShowHome(true)}>
-    //   {toggleButtonText}
-    // </AddItemButton>
+    <AddItemButton dark={dark} onClick={() => setShowHome(true)}>
+      {toggleButtonText}
+    </AddItemButton>
   )
 }
