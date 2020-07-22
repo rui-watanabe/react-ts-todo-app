@@ -5,18 +5,12 @@
   // for .ts
   "[typescript]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.formatOnPaste": true
   },
   // for .tsx
   "[typescriptreact]": {
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
+    "editor.formatOnPaste": true
   },
   // for .json with comment
   "[jsonc]": {
