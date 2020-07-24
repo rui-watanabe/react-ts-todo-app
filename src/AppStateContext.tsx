@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer } from "react"
 import { nanoid } from "nanoid"
 import { findItemIndexById } from "./utils/findItemIndexById"
 import { moveItem } from "./moveItem"
+import { DragItem } from "./DragItem"
 
 interface Task {
   id: string
@@ -16,6 +17,7 @@ interface List {
 
 export interface AppState {
   lists: List[]
+  draggedItem?: DragItem
 }
 
 interface AppStateContextProps {
@@ -43,6 +45,10 @@ type Action =
         //to
         hoverIndex: number
       }
+    }
+  | {
+      type: "SET_DRAGGED_ITEM"
+      payload: DragItem | undefined
     }
 
 const appData: AppState = {
@@ -88,7 +94,6 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
     case "ADD_LIST":
       return {
-        ...state,
         lists: [
           ...state.lists,
           { id: nanoid(), text: action.payload, tasks: [] },
@@ -109,6 +114,8 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       //sort lists
       state.lists = moveItem(state.lists, dragIndex, hoverIndex)
       return { ...state }
+    case "SET_DRAGGED_ITEM":
+      return { ...state, draggedItem: action.payload }
     default:
       return state
   }
