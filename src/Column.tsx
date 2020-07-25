@@ -3,6 +3,7 @@ import { AddNewItem } from "./AddNewItem"
 import { useAppState } from "./AppStateContext"
 import { Card } from "./Card"
 import { useItemDrag } from "./useItemDrag"
+import { isHidden } from "./utils/isHidden"
 import { ColumnContainer, ColumnTitle } from "./styles"
 
 interface ColumnProps {
@@ -19,10 +20,13 @@ export const Column = ({ id, text, index }: ColumnProps) => {
   drag(ref)
 
   return (
-    <ColumnContainer ref={ref}>
+    <ColumnContainer
+      ref={ref}
+      isHidden={isHidden(state.draggedItem, "COLUMN", id)}
+    >
       <ColumnTitle>{text}</ColumnTitle>
-      {state.lists[index].tasks.map((task) => (
-        <Card text={task.text} key={task.id} />
+      {state.lists[index].tasks.map((task, i) => (
+        <Card text={task.text} key={task.id} index={i} />
       ))}
       <AddNewItem
         toggleButtonText="+ Add another task"
