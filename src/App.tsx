@@ -14,9 +14,6 @@ function App() {
         <Column id={list.id} text={list.text} key={list.id} index={i} />
       ))}
 
-      {/* <Column text="Done">
-        <Card text="Begin to use static typing" />
-      </Column> */}
       <AddNewItem
         toggleButtonText="+ Add another list"
         onAdd={(text) => dispatch({ type: "ADD_LIST", payload: text })}

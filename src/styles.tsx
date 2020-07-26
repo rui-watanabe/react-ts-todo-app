@@ -21,7 +21,7 @@ export const AppContainer = styled.div`
 
 export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
   transform: ${(props) => (props.isPreview ? "rotate(5deg)" : undefined)};
-  opacity: ${(props) => (props.isHidden ? 0.3 : 1)};
+  opacity: ${(props) => (props.isHidden ? 0 : 1)};
 `
 
 export const ColumnContainer = styled(DragPreviewContainer)`
@@ -39,7 +39,7 @@ export const ColumnTitle = styled.div`
   font-weight: bold;
 `
 
-export const CardContainer = styled.div`
+export const CardContainer = styled(DragPreviewContainer)`
   background-color: #fff;
   cursor: pointer;
   margin-bottom: 0.5rem;
