@@ -5,6 +5,8 @@ import { Card } from "./Card"
 import { useItemDrag } from "./useItemDrag"
 import { isHidden } from "./utils/isHidden"
 import { ColumnContainer, ColumnTitle } from "./styles"
+import { useDrop } from "react-dnd"
+import { DragItem } from "./DragItem"
 
 interface ColumnProps {
   id: string
@@ -18,7 +20,20 @@ export const Column = ({ id, text, index, isPreview }: ColumnProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const { drag } = useItemDrag({ type: "COLUMN", id, text, index })
 
-  drag(ref)
+  const [, drop] = useDrop({
+    accept: "COLUMN",
+    hover(item: DragItem) {
+      const dragIndex = item.index
+      const hoverIndex = index
+      if (dragIndex === hoverIndex) {
+        return
+      }
+      dispatch({ type: "MOVE_LIST", payload: { dragIndex, hoverIndex } })
+      item.index = hoverIndex
+    },
+  })
+
+  drag(drop(ref))
 
   return (
     <ColumnContainer
