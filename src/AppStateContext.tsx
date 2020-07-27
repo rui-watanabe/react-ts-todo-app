@@ -40,9 +40,9 @@ type Action =
   | {
       type: "MOVE_LIST"
       payload: {
-        //from
+        // from
         dragIndex: number
-        //to
+        // to
         hoverIndex: number
       }
     }
@@ -119,7 +119,7 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       return { ...state }
     case "MOVE_LIST":
       const { dragIndex, hoverIndex } = action.payload
-      //sort lists
+      // sort lists
       state.lists = moveItem(state.lists, dragIndex, hoverIndex)
       return { ...state }
     case "SET_DRAGGED_ITEM":
